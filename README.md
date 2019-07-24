@@ -2,7 +2,15 @@
 
 # torch_lsuv_init
 
-PyTorch implementation of layer sequential unit variance (LSUV), as described in "All you need is a good init" by [Mishkin, D. et al (2015)](https://arxiv.org/abs/1511.06422). This implementation strives to be short, simple, and easy to modify.
+PyTorch implementation of layer sequential unit variance (LSUV), as described in "All you need is a good init" by [Mishkin, D. et al (2015)](https://arxiv.org/abs/1511.06422).
+
+## Why?
+
+We were unable to find a short, simple implementation online.
+
+Excluding comments, this one is under 30 lines of code.
+
+It's meant to be easy to understand/modify.
 
 ## Installation
 
