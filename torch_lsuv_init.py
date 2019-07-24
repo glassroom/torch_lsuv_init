@@ -49,6 +49,6 @@ def LSUV_(model, data, apply_only_to=['Conv', 'Linear', 'Bilinear'],
                     mean, std = m._LSUV_stats['mean'], m._LSUV_stats['std']
                     if abs(std - 1.0) < tol:
                         break
-                    m.weight.data /= (std  + 1e-6)
+                    m.weight.data /= (std + 1e-6)
             logging_FN(f"Module {i:2} after {(t+1):2} itr(s) | Mean:{mean:7.3f} | Std:{std:6.3f} | {type(m)}")
             delattr(m, '_LSUV_stats')
