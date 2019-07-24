@@ -24,15 +24,13 @@ Note: Tested only with PyTorch versions 1.0 and 1.1, on Ubuntu Linux 18.04 and P
 
 ## Sample usage
 
-LSUV initialization requires at least two parameters: the model to be initialized and a sample batch of input data drawn from the training dataset. If the PyTorch model is named `model` and the the sample batch of input data is named `data`, usage is as follows:
-
 ```python
 from torch_lsuv_init import LSUV_
 
 LSUV_(model, data)
 ```
 
-There are several optional arguments not shown here. Please see the code for details.
+`model` is the PyTorch model to be initialized and `data` is a sample batch of input data drawn from the training dataset. Several optional arguments are not shown here. Please see the code for details.
 
 # Licence
 
