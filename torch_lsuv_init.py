@@ -38,7 +38,7 @@ def LSUV_(model, data, apply_only_to=['Conv', 'Linear', 'Bilinear'],
     logging_FN(f"Applying LSUV to {len(matched_modules)} module(s) (up to {max_iters} iters per module):")
 
     def _compute_and_store_LSUV_stats(m, inp, out):
-        m._LSUV_stats = { 'mean': out.data.mean(), 'std': out.data.std() }
+        m._LSUV_stats = { 'mean': out.detach().mean(), 'std': out.detach().std() }
 
     with torch.no_grad():
         model.train()  # ensure all modules have training behavior
