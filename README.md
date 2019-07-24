@@ -18,13 +18,13 @@ Copy the file `torch_lsuv_init.py` to your application directory.
 
 ## Requirements
 
-The only requirement is a working installation of [PyTorch](https://pytorch.org/).
+The only requirement is a working installation of [PyTorch](https://pytorch.org/) on Python 3.
 
 Note: Tested only with PyTorch versions 1.0 and 1.1, on Ubuntu Linux 18.04 and Python 3.6+.
 
 ## Sample usage
 
-LSUV initialization requires only two paramenters: the model to be initialized and a sample batch of input data drawn from the training dataset. If the PyTorch model is named `model` and the the sample batch of input data is named `data`, the model is initialized as follows:
+LSUV initialization requires at least two parameters: the model to be initialized and a sample batch of input data drawn from the training dataset. If the PyTorch model is named `model` and the the sample batch of input data is named `data`, usage is as follows:
 
 ```python
 from torch_lsuv_init import LSUV_
