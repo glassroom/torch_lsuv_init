@@ -12,7 +12,7 @@ Copy the file `torch_lsuv_init.py` to your application directory.
 
 The only requirement is a working installation of [PyTorch](https://pytorch.org/).
 
-Note: Tested only with PyTorch versions 1.0 and 1.1.
+Note: Tested only with PyTorch versions 1.0 and 1.1, on Ubuntu Linux 18.04 and Python 3.6+.
 
 ## Sample usage
 
