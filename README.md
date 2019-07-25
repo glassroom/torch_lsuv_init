@@ -30,9 +30,13 @@ from torch_lsuv_init import LSUV_
 LSUV_(model, data)
 ```
 
-`model` is the PyTorch model to be initialized and `data` is a sample batch of input data drawn from the training dataset. Several optional arguments are not shown here. Please see the code for details.
+Where: `model` is the model to be initialized and `data` is a sample batch of input data drawn from the training dataset. Several optional arguments are not shown here. Please see the code for details.
 
-# Licence
+## Notes
+
+This implementation uses PyTorch's built-in orthogonal init, which at the time of writing (mid-2019) relies on QR decomposition, instead of singular value decomposition (SVD) as in other implementations.
+
+## Licence
 
 torch_lsuv_init is released under the [MIT License](https://github.com/glassroom/torch_lsuv_init/blob/master/LICENSE).
 
