@@ -22,7 +22,7 @@ The only requirement is a working installation of [PyTorch](https://pytorch.org/
 
 Note: Tested only with PyTorch versions 1.0 and 1.1, on Ubuntu Linux 18.04 and Python 3.6+.
 
-## Sample usage
+## Usage
 
 ```python
 from torch_lsuv_init import LSUV_
@@ -30,7 +30,30 @@ from torch_lsuv_init import LSUV_
 LSUV_(model, data)
 ```
 
-Where: `model` is the model to be initialized and `data` is a sample batch of input data drawn from the training dataset. Several optional arguments are not shown here. Please see the code for details.
+Where: `model` is the model to be initialized and `data` is a sample batch of input data drawn from the training dataset.
+
+The complete list of parameters and default values are:
+
+```python
+LSUV_(model, data, apply_only_to=['Conv', 'Linear', 'Bilinear'],
+      tol=0.1, max_iters=10, do_ortho_init=True, logging_FN=print):
+```
+
+Where:
+
+`model` is a torch.nn.Module object containing the model on which to apply LSUV.
+
+`data` is a sample input data drawn from training dataset.
+
+`apply_only_to` is a list of strings indicating target children modules. For example, \['Conv'\] results in LSUV applied to children of type containing the substring 'Conv'.
+
+`tol` is a positive number lower than 1.0, below which differences between actual and unit standard deviation are acceptable.
+
+`max_iters` is the number of times to try scaling standard deviation of each children module's output activations.
+
+`do_ortho_init` is a boolean indicating whether to apply orthogonal init to parameters of at least 2 dimensions (or zero init if dimension is lower than 2).
+
+`logging_FN` is a function for outputting progress information.
 
 ## Notes
 
