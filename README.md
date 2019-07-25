@@ -57,7 +57,9 @@ Where:
 
 ## Notes
 
-This implementation uses PyTorch's built-in orthogonal init, which at the time of writing (mid-2019) relies on QR decomposition, instead of singular value decomposition (SVD) as in other implementations.
+We use PyTorch's built-in orthogonal init, which at the time of writing (mid-2019) relies on QR decomposition, instead of singular value decomposition (SVD) as in other implementations of LSUV.
+
+As published on the paper, the LSUV algorithm is supposed to measure tolerance on variance, but the various implementations of LSUV we have found online measure tolerance on standard deviation. To remain consistent with this convention, we measure tolerance on standard deviation in our implementation too.
 
 ## Licence
 
