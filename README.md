@@ -45,13 +45,13 @@ Where:
 
 `data` is a sample batch of input data drawn from training dataset.
 
-`apply_only_to` is a list of strings indicating target children modules. For example, \['Conv'\] results in LSUV applied to children of type containing the substring 'Conv'.
+`apply_only_to` is a list of strings indicating target children modules. For example, \['Conv'\] results in LSUV being applied to children of type containing the substring 'Conv', which matches all convolutional layers defined in the PyTorch API: Conv1d, Conv2d, ..., ConvTranspose2d, ConvTranspose3d.
 
 `tol` is a positive number lower than 1.0, below which differences between actual and unit standard deviation are acceptable.
 
 `max_iters` is the number of times to try scaling standard deviation of each children module's output activations.
 
-`do_ortho_init` is a boolean indicating whether to apply orthogonal init to parameters of at least 2 dimensions (or zero init if dimension is lower than 2).
+`do_ortho_init` is a boolean indicating whether to apply orthogonal init to parameters of at least 2 dimensions (or zero init if dimension is lower than 2, as in bias parameters).
 
 `logging_FN` is a function for outputting progress information.
 
