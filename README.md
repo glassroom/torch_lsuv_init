@@ -36,7 +36,7 @@ The complete list of parameters and default values are:
 
 ```python
 LSUV_(model, data, apply_only_to=['Conv', 'Linear', 'Bilinear'],
-      tol=0.1, max_iters=10, do_ortho_init=True, logging_FN=print):
+      std_tol=0.1, max_iters=10, do_ortho_init=True, logging_FN=print):
 ```
 
 Where:
@@ -47,7 +47,7 @@ Where:
 
 `apply_only_to` is a list of strings indicating target children modules. For example, \['Conv'\] results in LSUV being applied to children of type containing the substring 'Conv', which includes all convolutional layers defined in the PyTorch API ('Conv1d', 'Conv2d', ..., 'ConvTranspose3d').
 
-`tol` is a positive number lower than 1.0, below which differences between actual and unit standard deviation are acceptable.
+`std_tol` is a positive number lower than 1.0, below which differences between actual and unit standard deviation are acceptable.
 
 `max_iters` is the number of times to try scaling standard deviation of each children module's output activations.
 

@@ -1,7 +1,7 @@
 import torch
 
 def LSUV_(model, data, apply_only_to=['Conv', 'Linear', 'Bilinear'],
-          tol=0.1, max_iters=10, do_ortho_init=True, logging_FN=print):
+          std_tol=0.1, max_iters=10, do_ortho_init=True, logging_FN=print):
     r"""
     Applies layer sequential unit variance (LSUV), as described in
     `All you need is a good init` - Mishkin, D. et al (2015):
@@ -13,7 +13,7 @@ def LSUV_(model, data, apply_only_to=['Conv', 'Linear', 'Bilinear'],
         apply_only_to: list of strings indicating target children
             modules. For example, ['Conv'] results in LSUV applied
             to children of type containing the substring 'Conv'.
-        tol: positive number < 1.0, below which differences between
+        std_tol: positive number < 1.0, below which differences between
             actual and unit standard deviation are acceptable.
         max_iters: number of times to try scaling standard deviation
             of each children module's output activations.
@@ -47,7 +47,7 @@ def LSUV_(model, data, apply_only_to=['Conv', 'Linear', 'Bilinear'],
                 for t in range(max_iters):
                     _ = model(data)  # run data through model to get stats
                     mean, std = m._LSUV_stats['mean'], m._LSUV_stats['std']
-                    if abs(std - 1.0) < tol:
+                    if abs(std - 1.0) < std_tol:
                         break
                     m.weight.data /= (std + 1e-6)
             logging_FN(f"Module {i:2} after {(t+1):2} itr(s) | Mean:{mean:7.3f} | Std:{std:6.3f} | {type(m)}")
