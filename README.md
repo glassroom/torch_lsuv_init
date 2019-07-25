@@ -43,7 +43,7 @@ Where:
 
 `model` is a torch.nn.Module object containing the model on which to apply LSUV.
 
-`data` is a sample input data drawn from training dataset.
+`data` is a sample batch of input data drawn from training dataset.
 
 `apply_only_to` is a list of strings indicating target children modules. For example, \['Conv'\] results in LSUV applied to children of type containing the substring 'Conv'.
 
