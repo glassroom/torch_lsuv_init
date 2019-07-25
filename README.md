@@ -1,8 +1,8 @@
-![GlassRoom Logo](https://github.com/glassroom/torch_lsuv_init/blob/master/glassroom-logo.png)
-
 # torch_lsuv_init
 
-PyTorch implementation of layer sequential unit variance (LSUV), as described in "All you need is a good init" by [Mishkin, D. et al (2015)](https://arxiv.org/abs/1511.06422).
+PyTorch implementation of layer sequential unit variance (LSUV), as described in ["All you need is a good init" by Mishkin, D. et al (2015)](https://arxiv.org/abs/1511.06422):
+
+![Algorithm as published](algorithm_as_published.png)
 
 ## Why?
 
@@ -38,6 +38,4 @@ This implementation uses PyTorch's built-in orthogonal init, which at the time o
 
 ## Licence
 
-torch_lsuv_init is released under the [MIT License](https://github.com/glassroom/torch_lsuv_init/blob/master/LICENSE).
-
-Copyright (c) 2019-present GlassRoom Software LLC.
+torch_lsuv_init is released by GlassRoom Software LLC under the [MIT License](LICENSE).
