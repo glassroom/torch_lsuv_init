@@ -40,8 +40,9 @@ def LSUV_(model, data, apply_only_to=['Conv', 'Linear', 'Bilinear'],
     def _compute_and_store_LSUV_stats(m, inp, out):
         m._LSUV_stats = { 'mean': out.detach().mean(), 'std': out.detach().std() }
 
+    was_training = model.training
+    model.train()  # sets all modules to training behavior
     with torch.no_grad():
-        model.train()  # ensure all modules have training behavior
         for i, m in enumerate(matched_modules):
             with m.register_forward_hook(_compute_and_store_LSUV_stats):
                 for t in range(max_iters):
@@ -52,3 +53,5 @@ def LSUV_(model, data, apply_only_to=['Conv', 'Linear', 'Bilinear'],
                     m.weight.data /= (std + 1e-6)
             logging_FN(f"Module {i:2} after {(t+1):2} itr(s) | Mean:{mean:7.3f} | Std:{std:6.3f} | {type(m)}")
             delattr(m, '_LSUV_stats')
+
+    if not was_training: model.eval()
