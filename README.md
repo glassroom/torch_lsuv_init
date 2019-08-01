@@ -6,7 +6,7 @@ PyTorch implementation of layer sequential unit variance (LSUV), as described in
 
 ## Why?
 
-We were unable to find a short, simple implementation online.
+We were unable to find a short, simple, standalone implementation online.
 
 Excluding comments, this one is under 30 lines of code.
 
